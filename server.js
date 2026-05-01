@@ -88,7 +88,7 @@ function seedAdmin() {
   const count = db.prepare('SELECT COUNT(*) AS n FROM admins').get().n;
   if (count > 0) return;
   const username = process.env.ADMIN_USER || 'admin';
-  const password = process.env.ADMIN_PASS || 'useradmin';
+  const password = process.env.ADMIN_PASS || 'admin12345';
   const hash = bcrypt.hashSync(password, 12);
   db.prepare('INSERT INTO admins(username, password_hash) VALUES(?, ?)').run(username, hash);
   console.log(`[setup] default admin created: ${username}`);
