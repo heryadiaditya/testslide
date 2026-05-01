@@ -1,0 +1,8 @@
+node_modules
+.env
+storage/app.sqlite
+storage/app.sqlite-shm
+storage/app.sqlite-wal
+storage/decks
+tmp/*
+!.gitkeep
