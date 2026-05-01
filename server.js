@@ -21,7 +21,7 @@ const app = express();
 const PORT = Number(process.env.PORT || 3000);
 const ROOT = __dirname;
 const STORAGE_DIR = path.join(ROOT, 'storage');
-const TMP_DIR = path.join(ROOT, 'tmp');
+const TMP_DIR = path.join(STORAGE_DIR, 'tmp');
 const DB_PATH = path.join(STORAGE_DIR, 'app.sqlite');
 
 const SESSION_SECRET = process.env.SESSION_SECRET || 'dev-session-secret';
