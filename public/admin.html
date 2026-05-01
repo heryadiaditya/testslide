@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - PPT Secure Slideshow</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <div class="nav">
+      <div class="brand">PPT Secure Slideshow · Admin</div>
+      <div class="row">
+        <a href="/viewer.html">Viewer</a>
+        <button id="logoutBtn" class="secondary hidden">Logout</button>
+      </div>
+    </div>
+
+    <section id="loginCard" class="card">
+      <h2>Login Admin</h2>
+      <form id="loginForm">
+        <label>Username</label>
+        <input name="username" autocomplete="username" required />
+        <label>Password</label>
+        <input name="password" type="password" autocomplete="current-password" required />
+        <div style="margin-top:14px"><button type="submit">Login</button></div>
+      </form>
+      <div id="loginStatus" class="status"></div>
+    </section>
+
+    <section id="adminPanel" class="hidden">
+      <div class="grid">
+        <section class="card">
+          <h2>Upload Deck</h2>
+          <p class="notice">
+            Mode <b>slides</b> untuk PPT/PDF tanpa animasi. Mode <b>video</b> untuk PPT beranimasi yang sudah diexport ke MP4/WebM.
+          </p>
+          <form id="uploadForm">
+            <label>Judul</label>
+            <input name="title" placeholder="Contoh: TryOut UTBK Paket A" required />
+            <label>Mode</label>
+            <select name="mode" required>
+              <option value="slides">Slides: PPT/PPTX/PDF → gambar</option>
+              <option value="video">Video: MP4/WebM untuk animasi</option>
+            </select>
+            <label>File</label>
+            <input name="file" type="file" accept=".ppt,.pptx,.pdf,.mp4,.webm" required />
+            <div style="margin-top:14px"><button type="submit">Upload & Generate Viewer</button></div>
+          </form>
+          <div id="uploadStatus" class="status"></div>
+        </section>
+
+        <section class="card">
+          <h2>Generate Kode Akses</h2>
+          <form id="codeForm">
+            <label>Deck</label>
+            <select name="deckId" id="deckSelect" required></select>
+            <label>Batas Device</label>
+            <input name="maxDevices" type="number" min="1" max="20" value="2" required />
+            <div style="margin-top:14px"><button type="submit">Generate Kode</button></div>
+          </form>
+          <div id="codeStatus" class="status"></div>
+        </section>
+      </div>
+
+      <section class="card">
+        <div class="row" style="justify-content:space-between">
+          <h2>Deck</h2>
+          <button id="refreshBtn" class="secondary">Refresh</button>
+        </div>
+        <div style="overflow:auto">
+          <table class="table">
+            <thead><tr><th>Judul</th><th>Mode</th><th>Slide</th><th>Dibuat</th><th>Aksi</th></tr></thead>
+            <tbody id="decksBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Kode Akses</h2>
+        <div style="overflow:auto">
+          <table class="table">
+            <thead><tr><th>Kode</th><th>Deck</th><th>Device</th><th>Dibuat</th><th>Aksi</th></tr></thead>
+            <tbody id="codesBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="/admin.js"></script>
+</body>
+</html>

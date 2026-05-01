@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Viewer - PPT Secure Slideshow</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body oncontextmenu="return false">
+  <main class="viewer-shell">
+    <section id="loginView" class="viewer-login card">
+      <h1>Masukkan Kode Akses</h1>
+      <p class="notice">Kode akan dikaitkan dengan device ini sesuai batas yang ditentukan admin.</p>
+      <form id="accessForm">
+        <label>Kode Akses</label>
+        <input name="code" inputmode="latin" autocomplete="off" placeholder="Contoh: A1B2C3D4" required />
+        <div style="margin-top:14px"><button type="submit">Buka Presentasi</button></div>
+      </form>
+      <div id="accessStatus" class="status"></div>
+    </section>
+
+    <section id="stageView" class="stage-wrap hidden">
+      <div class="stage-topbar">
+        <div class="stage-title" id="deckTitle">Presentasi</div>
+        <div class="stage-actions">
+          <button id="fullscreenBtn">Fullscreen</button>
+          <button id="logoutAccessBtn" class="secondary">Keluar</button>
+        </div>
+      </div>
+      <div id="stage" class="stage" aria-live="polite">
+        <img id="slideImg" class="slide-img hidden" draggable="false" alt="Slide" />
+        <video id="videoPlayer" class="video-player hidden" controls controlsList="nodownload noplaybackrate" disablePictureInPicture playsinline></video>
+        <div id="watermark" class="watermark"></div>
+      </div>
+      <div id="slideControls" class="controls hidden">
+        <button id="prevBtn" class="secondary">← Sebelumnya</button>
+        <span id="counter" class="badge">0/0</span>
+        <button id="nextBtn" class="secondary">Berikutnya →</button>
+      </div>
+    </section>
+  </main>
+  <script src="/viewer.js"></script>
+</body>
+</html>
